@@ -1,0 +1,28 @@
+//学習内容のメモです
+
+yarn add @react-navigation/native 実行
+expo install react-native-screens react-native-safe-area-context　実行
+yarn add @react-navigation/native-stack　実行
+
+App.jsxに以下をインポートする
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+App.jsxで↑スタックナビゲーターを定義する
+
+以下でスクリーンを定義
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="FirstScreen" component={FirstScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+
+下のように変更することで、ヘッダー部分を削除できる
+
+ <Stack.Screen name="FirstScreen" component={FirstScreen} options={{headerShown: false}}/>
+
+
+ ////////////////
+ 任意
+ 
