@@ -3,11 +3,12 @@ import React from 'react';
 import { StyleSheet, Text, View,　 } from 'react-native';
 import FirstItem from '../components/FirstItem';
 
-const FirstScreen =() => {
+const FirstScreen =({navigation}) => {
+
   return (
     <View style={styles.container}>
       <FirstItem
-      onPress={() => alert('tap')}
+      onPress={() => navigation.navigate("Second")}
       />
     </View>
   );
