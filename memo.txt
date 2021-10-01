@@ -33,3 +33,4 @@ App.jsxで↑スタックナビゲーターを定義する
 
  ///////////////
  TouchableOpacity をインポートする　タッチした時の挙動をつけれる
+ Moving between screens 　タップしたときに画面遷移するために使われる
