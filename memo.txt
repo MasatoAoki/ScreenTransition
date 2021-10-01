@@ -34,3 +34,53 @@ App.jsxで↑スタックナビゲーターを定義する
  ///////////////
  TouchableOpacity をインポートする　タッチした時の挙動をつけれる
  Moving between screens 　タップしたときに画面遷移するために使われる
+
+ /////////////////////////////////////////////ここまでで画面遷移自体は完了
+  /////////////////////////////////////////////ここからはreactnavigationによるタブの作成に移る
+  yarn add @react-navigation/bottom-tabs でインストール
+  import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; インポート
+  const Tab = createBottomTabNavigator(); 追記
+
+  export default AppNavigator = () => {
+    return (
+      <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name="First" component={FirstStack} options={{headerShown: false}}/>
+            <Tab.Screen name="Second" component={SecondStack}options={{headerShown: false}}/>
+
+
+          </Tab.Navigator>
+      </NavigationContainer>
+
+      上でタブを定義
+
+
+/////////////////////タブにアイコンを追加する
+
+expoでデフォルト搭載されているアイコンを今回は使う
+import {FontAwesome} from "@expo/vector-icons"　　expoからデフォのアイコンをインポート
+※アイコンのモデルについては以下を参照　　今回はFontAWesomeを使用している
+https://icons.expo.fyi/
+//
+const screenOption = ({route}) => ({
+  tabBarIcon: ({ focused, color, size }) => {
+    let iconName;
+
+    if (route.name === 'First') {
+      iconName = "home";
+    } else if (route.name === 'Second') {
+      iconName = "user";
+    }
+
+    return <FontAwesome name={iconName} size={size} color={color} />;
+  },
+})
+//
+
+上でフォントを定義
+
+
+          <Tab.Navigator screenOptions={screenOption}>
+
+タブナビゲーターにオプションを追加
+
